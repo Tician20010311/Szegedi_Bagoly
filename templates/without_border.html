@@ -1,0 +1,20 @@
+{% extends 'layouts/blank.html' %}
+{% block title %}Szegedi Bagoly - Hírek{% endblock %}
+
+{% block content %}
+<div class="conateiner mx-auto">
+  <h1 class="text-center m-4">Határtalanul - Képgaléria</h1>
+</div>
+{% for item in data %}
+<div class="card text-center m-4 w-50 mx-auto shadow" data-aos="fade-up">
+    <div class="card-header" style="background-color: #D8AE7E;">
+        {{ item.object.days }}.nap
+    </div>
+    <div class="card-body">
+        <h5 class="card-title">{{ item.object.title }}</h5>
+        <p class="card-text">{{ item.object.description }}</p>
+        <a href="{{ item.url }}" class="btn btn-light" style="color: #D8AE7E;">Képek megtekintése</a>
+    </div>
+</div>
+{% endfor %}
+{% endblock %}  

@@ -1,0 +1,74 @@
+{% extends 'layouts/blank.html' %}
+{% block title %}Szegedi Bagoly - Hírek{% endblock %}
+
+{% block content %}
+      
+    <div class="container text-center">    
+      <div class="container mt-4">
+      <main role="main" class="container">
+        <div class="row mb-4">
+          <h1 class="text-center border-bottom mb-4 p-4">Hírek</h1>
+        </div>
+        <div class="row m-4 p-4">
+          <div class="col-md-4">
+            {% for obj in leadnews %}
+            <div class="blog-post border p-4 rounded shadow mb-4">
+              <h2 class="blog-post-title text-start">{{ obj.title }}</h2>
+              <p class="blog-post-meta text-start">{{obj.created_at}}</p>
+              <p style="word-wrap:break-word";>{{ obj.description }}</p>
+              <hr>
+              <img src="{{ obj.image.url }}" alt="Image" class="img-fluid rounded shadow">
+            </div>
+            {% endfor %}
+            
+          </div>
+          <div class="col-md-4">
+            {% for obj in leadnews %}
+            <div class="blog-post border p-4 rounded shadow mb-4">
+              <h2 class="blog-post-title text-start">{{ obj.title }}</h2>
+              <p class="blog-post-meta text-start">{{obj.created_at}}</p>
+              <p style="word-wrap:break-word";>{{ obj.description }}</p>
+              <hr>
+              <img src="{{ obj.image.url }}" alt="Image" class="img-fluid rounded shadow">
+            </div>
+            {% endfor %}
+            
+          </div>
+          
+          <aside class="col-md-4 blog-sidebar">
+            <a href="https://drive.google.com/file/d/1YSbjX20bg7LSL7ZGwXaU_e7vIWiMAVKp/view?usp=sharing"target="_blank">
+            <div class="p-3 mb-3 bg-light rounded border shadow">
+              <h4 class="font-italic">Kecskéstelep története</h4>
+              <p>VÁROSRÉSZ SZÜLETETT: SZEGED–KECSKÉS ISTVÁN TELEP</p>
+            </div>
+          </a>
+          <a href="https://hatartalanul.net/"target="_blank">
+            <div class="p-3 mb-3 bg-light rounded border shadow" style="background-image: url(../../static/img/news/Határtalanul\ logó.png);background-repeat: no-repeat; background-size: cover; height: 100px;">
+            </div>
+          </a>
+          <a href="https://drive.google.com/file/d/1YSbjX20bg7LSL7ZGwXaU_e7vIWiMAVKp/view?usp=sharing"target="_blank">
+            <div class="p-3 mb-3 bg-light rounded border shadow">
+              <h4 class="font-italic">Határtalanul</h4>
+              <hr>
+              <p>Fotóalbum</p>
+            </div>
+          </a>
+            <div class="p-4 border rounded shadow overflow-auto">
+              <h4 class="font-italic mb-4">Közelgő események</h4>
+              {% for esemeny in esemenyek %}
+              <li>{{ esemeny.name }} - {{ esemeny.date }}</li>
+          {% empty %}
+              <li>No upcoming events.</li>
+          {% endfor %}
+            </div>
+          </aside>
+  
+        </div>
+  
+      </main>
+      </div>
+    </div>
+
+
+
+{% endblock content %}

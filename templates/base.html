@@ -1,0 +1,398 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="hu">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>{% block title %}{% endblock %}</title>
+
+
+    <link rel="icon" type="image/x-icon" href="{% static 'favicon.ico' %}">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,600;1,700&family=Montserrat:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&family=Raleway:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+  
+    <!-- Vendor CSS Files -->
+    <link href="../../static/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
+    <link href="../../static/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
+    <link href="../../static/vendor/aos/aos.css" rel="stylesheet">
+    <link href="../../static/vendor/glightbox/css/glightbox.min.css" rel="stylesheet">
+    <link href="../../static/vendor/swiper/swiper-bundle.min.css" rel="stylesheet">
+    
+    {% for obj in themes %}
+    <link rel="stylesheet" href="{{ obj.css_path }}">
+    {% endfor %}
+    
+
+    <script src="https://cdn.jsdelivr.net/npm/alpinejs@3.x.x/dist/cdn.min.js" defer></script>
+    <script src="https://unpkg.com/htmx.org/dist/htmx.js"></script>
+    <script src="https://unpkg.com/hyperscript.org@0.9.12"></script>
+    <script src="https://unpkg.com/htmx.org/dist/ext/ws.js"></script>
+
+    
+
+    <script src="../../static/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+    <script src="../../static/vendor/aos/aos.js"></script>
+    <script src="../../static/vendor/glightbox/js/glightbox.min.js"></script>
+    <script src="../../static/vendor/purecounter/purecounter_vanilla.js"></script>
+    <script src="../../static/vendor/swiper/swiper-bundle.min.js"></script>
+    <script src="../../static/vendor/isotope-layout/isotope.pkgd.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.7.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <script src="../../static/js/main.js"></script>
+
+
+    <style type="text/tailwindcss">
+        [x-cloak] { 
+            display: none !important; 
+        }
+        h1 {
+            @apply text-4xl font-bold mb-4
+        }
+        h2 {
+            @apply text-xl font-bold mb-2
+        }
+        p {
+            @apply mb-4
+        }
+        .button, button, [type='submit'], [type='button'] {
+            @apply bg-indigo-600 text-white font-bold px-6 py-4 inline-block 
+            rounded-lg shadow-lg transition-all cursor-pointer
+        }
+        .button:hover, button:hover, [type='submit']:hover, [type='button']:hover {
+            @apply bg-indigo-700
+        }
+        .button:active, button:active, [type='submit']:active, [type='button']:active {
+            @apply scale-95
+        }
+        .button.alert, button.alert {
+            @apply bg-red-700
+        }
+        .button.alert:hover, button.alert:hover {
+            @apply bg-red-600
+        }
+        .button-red {
+            @apply !bg-red-500 hover:!bg-red-600
+        }
+        .button-gray {
+            @apply !bg-gray-300 hover:!bg-[#c3c9d0]
+        }
+        .navitems>li>a {
+            @apply flex items-center gap-2 h-12 px-4 hover:bg-[rgba(31,41,55,0.3)] rounded-lg;
+        }
+        .hoverlist>* {
+            @apply hover:bg-gray-100 rounded-md transition duration-150;
+        }
+        .hoverlist>*>a {
+            @apply flex items-center p-2;
+        }
+        .highlight {
+            @apply !bg-indigo-100;
+        }
+        .allauth content a {
+            @apply underline underline-offset-2
+        }
+        .allauth content a:hover {
+            @apply text-indigo-500
+        }
+        .allauth form[action="/accounts/signup/"] ul {
+            @apply hidden
+        }
+        .allauth form[action="/accounts/signup/"] ul.errorlist {
+            @apply block
+        }
+        .allauth .helptext {
+            @apply block mt-4
+        }
+        label {
+            @apply hidden
+        }
+        input[type=file] {
+            @apply bg-white pl-0
+        }
+        .textarea, textarea, input {
+            @apply w-full rounded-lg py-4 px-5 bg-gray-100
+        }
+        .errorlist li {
+            @apply p-1 pl-4 border-l-red-500 border-l-4 border-solid mb-2 text-red-500
+        }
+        label[for="id_remember"] {
+            @apply inline-block w-auto mr-2
+        }
+        input[name="remember"] {
+            @apply w-auto
+        }
+        .alert-info { @apply bg-sky-600 }
+        .alert-success { @apply bg-emerald-600 }
+        .alert-warning { @apply bg-orange-600 }
+        .alert-danger { @apply bg-red-600 }
+    </style>
+</head>
+<body class="{% block class %}{% endblock %}">
+	<section id="topbar" class="topbar d-flex align-items-center">
+    <div class="container d-flex justify-content-center justify-content-md-between">
+      <div class="contact-info d-flex align-items-center mx-auto">
+        <i class="bi bi-envelope d-flex align-items-center d-none d-lg-block"><a
+            href="mailto:szegedi.fekete.iskola@gmail.com">szegedi.fekete.iskola@gmail.com</a></i>
+        <i class="bi bi-phone d-flex align-items-center ms-4 d-none d-lg-block"><span>+36 62/548-960</span></i>
+        <i class="bi bi-buildings d-flex align-items-center ms-4 ml-5"><a href="https://kk.gov.hu/szeged" target="_blank">Fenntartónk: <img src="../../static/img/TK.jpg" alt="TK" width="200" class="rounded mx-auto" /></a></i>
+      </div>
+      <div class="social-links d-none d-md-flex align-items-center">
+        <a href="https://www.facebook.com/FIAISZ" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+        <a href="https://github.com/Tician20010311" class="facebook" target="_blank"><i class="bi bi-github"></i></a>
+        <a href="https://www.youtube.com/@feketeiskola5365/featured" class="facebook" target="_blank"><i
+            class="bi bi-bi bi-youtube"></i></a>
+      </div>
+    </div>
+      </section>
+      <a href="#" class="scroll-top d-flex align-items-center justify-content-center"><i class="bi bi-arrow-up-short"></i></a>
+      <header id="header" class="header d-flex align-items-center">
+      <div class="container-fluid container-xl d-flex align-items-center justify-content-between">
+        <a href="/" class="logo d-flex align-items-center">
+          <h1>Szegedi Bagoly<span>.</span></h1>
+        </a>
+        <nav id="navbar" class="navbar">
+            <!--
+            
+            <ul>
+                {% if request.user.is_authenticated %}
+                <li>
+                    <a>
+                        <img  src="{{ user.profile.avatar }}"/>
+                        {{ user.profile.name }}
+                        <img src="https://img.icons8.com/small/32/ffffff/expand-arrow.png"/>
+                    </a>
+    
+                        <ul>
+                            <li><a href="{% url 'profile' %}">My Profile</a></li>
+                            <li><a href="{% url 'profile-edit' %}">Edit Profile</a></li>
+                            <li><a href="{% url 'profile-settings' %}">Settings</a></li>
+                            <li><a href="{% url 'account_logout' %}">Log Out</a></li>
+                        </ul>
+                    </div>
+                </li>
+                {% else %}
+                    <li class="dropdown"><a href="#"><span>Fiók</span> <i
+                        class="bi bi-chevron-down dropdown-indicator"></i></a>
+                        <ul>
+                            <li><a href="{% url 'account_login' %}">Bejelentkezés</a></li>
+                            <li><a href="{% url 'account_signup' %}?next={% url 'profile-onboarding' %}">Regisztróció</a></li>
+                        </ul>
+                {% endif %}
+            </ul>
+            -->
+          <ul>
+            <li class="dropdown"><a href="#"><span>Szülők részére</span> <i
+              class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li class="dropdown"><a href="#"><span>Beiratkozás</span> <i
+              class="bi bi-chevron-down dropdown-indicator"></i></a>
+          <ul>
+            <li><a href="/enroll">A beiratkozás időpontjai</a></li>
+            <li><a href="https://drive.google.com/drive/folders/1zwfxjk0UlissxBvNVlkRTYBK6c_3ktjH?usp=drive_link"
+                target="_blank">Letölthető nyomtatványok</a></li>
+            <li><a href="https://drive.google.com/file/d/1oicNvl-QN6Ojn8rSoqVC5mz_67tbstty/view?usp=sharing"
+                target="_blank">Bemutatkozás leendő első osztályos szülőknek</a></li>
+            <li><a href="https://drive.google.com/file/d/1WBTEpaclCIVJAhnUQ3v-y1KWcAPDIibh/view?usp=sharing"
+                target="_blank">Átviteli kérelem</a></li>
+                <li><a href="https://drive.google.com/file/d/1ElvD0-TWEvZGYyp7h1kHCfoqhYzU-KeQ/view?usp=sharing"
+                  target="_blank">Tájékoztató a felvételi / átvételi lehetőségekről</a></li>
+          </ul>
+        </li>
+        <li><a href="https://drive.google.com/file/d/1GFwnsibtGMJPJgD_MWaIlV_8aN6Nqp57/view?usp=sharing"
+          target="_blank">Nyári tábor</a></li>
+            <li><a href="https://drive.google.com/file/d/1cFhfAA6YpW_5SFYla2pmo9fh-FH37kMw/view"
+                target="_blank">Heti 2 testnevelés óra alóli felmentés tájékozató</a></li>
+            <li><a href="https://drive.google.com/file/d/1_huWFJEYU5cmJDaCSBCJJNBjePV8fPOn/view"
+                target="_blank">Tanuló 3 napot meghaladó hiányzásának kérelme</a></li>
+            <li><a href="https://drive.google.com/file/d/1V0W21YA6uKJQSHDeH4VDuyxggw3IZxt1/view"
+                target="_blank">Rendezvényterv szülők részére 2023/24</a></li>
+            <li><a href="https://drive.google.com/file/d/1ANaCHQudXRhnrsKdTDM_LmL3516OCztY/view"
+                target="_blank">Tanárok egyéni fogadóórái alsó és felső tagozat</a></li>
+                <li><a href="https://drive.google.com/file/d/1cmz2r-fd72G9g4xnks8g9-CB-XXMJEXX/view?usp=sharing" target="_blank">Szülői nyilatkozat allergiás gyermek esetén</a></li>
+                <li><a href="https://drive.google.com/file/d/1iEe_-fjyPB4JrAdzTAHUxiVzi_njtkvn/view?usp=drive_link" target="_blank">Iskolapszichológus</a></li>
+                <li><a href="https://drive.google.com/file/d/1bUf2AS_IgAMDG9ALWyAREo-gU-a4mAe5/view?usp=sharing" target="_blank">Családsegítő</a></li>
+                <li><a href="https://drive.google.com/file/d/1bUf2AS_IgAMDG9ALWyAREo-gU-a4mAe5/view?usp=sharing" target="_blank">Iskolaorvos</a></li>
+                <li><a href="https://drive.google.com/file/d/1bUf2AS_IgAMDG9ALWyAREo-gU-a4mAe5/view?usp=sharing" target="_blank">Rendszergazda</a></li>
+                <li><a href="https://drive.google.com/file/d/1bUf2AS_IgAMDG9ALWyAREo-gU-a4mAe5/view?usp=sharing" target="_blank">Védőnő</a></li>
+
+          </ul>
+        </li>
+            <li class="dropdown"><a href="#"><span>Hivatalos Dokumentumok</span> <i
+                  class="bi bi-chevron-down dropdown-indicator"></i></a>
+              <ul>
+                <li class="dropdown"><a href="#"><span>Helyi tanterv</span> <i
+                      class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    <li><a href="https://drive.google.com/file/d/15EwFyxk85MVkg89yo7tZkvsBNAG1BpUg/view"
+                        target="_blank">Vizuális kúltúra</a></li>
+                    <li><a href="https://drive.google.com/file/d/1NQYDnLEjtbqbe75as3NW5OT-HoYZsNtQ/view"
+                        target="_blank">Történelem</a></li>
+                    <li><a href="https://drive.google.com/file/d/1CO6MVkMLiwBbvje42nLRc_tGHhH59cTu/view"
+                        target="_blank">Testnevelés</a></li>
+                    <li><a href="https://drive.google.com/file/d/1R9SGSyddnGbKk8o6JmZAAaFcFMTNVEJI/view?usp=sharing"
+                        target="_blank">Természettudomány</a></li>
+                    <li><a href="https://drive.google.com/file/d/1yT2sMmBf6rrIVbIBsGODYlPIOVCz81Xq/view"
+                        target="_blank">Technika és tervezés</a></li>
+                    <li><a href="https://drive.google.com/file/d/1A--GC7Gg_79Ch2oMxImDbbp-RmAnchIU/view"
+                        target="_blank">Matematika</a></li>
+                    <li><a href="https://drive.google.com/file/d/1a_p23IThaOuLuxhiJzE3ABBvcWO0oIf_/view"
+                        target="_blank">Magyarnyelv és irodalom</a></li>
+                    <li><a href="https://drive.google.com/file/d/1di9z10hc3eVgwBXjhIisGd-ziQrufxeT/view"
+                        target="_blank">Környezetismeret</a></li>
+                    <li><a href="https://drive.google.com/file/d/1spZntMrta7FsYz5l4T2l3yJf6b6gKXAO/view"
+                        target="_blank">Kémia</a></li>
+                    <li><a href="https://drive.google.com/file/d/1TdtcmyAFXd0ZHDpatUesMngLUgkXr4WS/view"
+                        target="_blank">Hon és nepismeret</a></li>
+                    <li><a href="https://drive.google.com/file/d/1LpGC9RxeLPW3dBqrjJf68Hr0TbgEmJlQ/view"
+                        target="_blank">Földrajz</a></li>
+                    <li><a href="https://drive.google.com/file/d/15q1f59Fqz-cIZsSIZTrMYObNob4mJ-X9/view"
+                        target="_blank">Fizika</a></li>
+                    <li><a href="https://drive.google.com/file/d/1GroFsX1Cy4MVa0pA9tRZYecHXNlMaDzW/view"
+                        target="_blank">Etika</a></li>
+                    <li><a href="https://drive.google.com/file/d/1odeYbFZRcGknBWifQEoqK-ec07n6_9pp/view"
+                        target="_blank">Ének- zene</a></li>
+                    <li><a href="https://drive.google.com/file/d/1eCnf_m_CTVLBGXVBWOCbo2B3mS6068wF/view"
+                        target="_blank">Angol nyelv</a></li>
+                    <li><a href="https://drive.google.com/file/d/1xD5TurxiTqgL-2_5inHCe_iNqfDVea21/view"
+                        target="_blank">Dráma és színház ismeretek</a></li>
+                    <li><a href="https://drive.google.com/file/d/1u-t_pczjEW9BJj3HNxLbFm70-VAOvYUO/view"
+                        target="_blank">Digitális kultúra</a></li>
+                    <li><a href="https://drive.google.com/file/d/1WxR7XRsWUtkLYnbafR0hhjrLzGQqiKV_/view"
+                        target="_blank">Biológia</a></li>
+                    <li><a href="https://drive.google.com/file/d/1G373ojHrM7-4nzOtMofMKk16bUQzfiaT/view"
+                        target="_blank">Állampolgári ismeretek</a></li>
+                  </ul>
+                </li>
+                <li><a href="https://drive.google.com/file/d/1lycRMgYZbgZsfXZfX14ADLdsrHWsQBgz/view"
+                    target="_blank">Házirend</a></li>
+                <li class="dropdown"><a href="#"><span>Közzétételi lista</span> <i
+                      class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    <li><a href="https://drive.google.com/file/d/10UVDmtI2QfNERqqBBVQAvAb4YCcVGcRt/view"
+                        target="_blank">Szervezeti és működési szabályzat</a></li>
+                    <li><a href="https://drive.google.com/file/d/1SRBJGPOeGEjUWtE_P37j3SQMR4Zu009T/view"
+                        target="_blank">Pedagógusok iskolai végzettsége</a></li>
+                    <li><a href="https://drive.google.com/file/d/1KkqrucoIFW4JhK3pk9FyUJV5qv-eLPhY/view"
+                        target="_blank">Nevelő-oktató munkát közvetlenül segítő (NOKS) dolgozók iskolai végezttsége</a>
+                    </li>
+                    <li><a href="https://drive.google.com/file/d/1syKVJy7cOsRejDgslNNbA9aoWmBIzL1o/view" target="_blank">A
+                        fenntartó által engedélyezett osztályok, csoportok száma 2022-23</a></li>
+                    <li><a href="https://drive.google.com/file/d/1QIx077VgtJfXkjbNYsGvTBMfKZkhD3jz/view"
+                        target="_blank">Az országos mérés-értékelés éves eredményei</a></li>
+                    <li><a href="https://drive.google.com/file/d/1Gzz3azAI0PURnvPKKqX1s9erTDljwNTE/view"
+                        target="_blank">Pedagógiai program
+                    <li><a href="https://drive.google.com/file/d/1Leiucx6tZMMKV6qptEnl3c232W-i9Umi/view"
+                        target="_blank">Rendezvényterv szülőknek 2023-24</a></li>
+                    <li><a href="https://drive.google.com/file/d/1A54g8JYEI0qnmzfCjBntnjsPxTZmRfH1/view"
+                        target="_blank">Tanulók le-és kimaradása</a></li>
+                    <li><a href="https://drive.google.com/file/d/1tulDAZ_egmhSAvhxuKs-qqAJ_J-FScB7/view"
+                        target="_blank">Alapdokumentum</a></li>
+                    <li><a href="https://drive.google.com/file/d/1QA8O2KLoakVqnUxibDO67QJIeGsTmLlH/view"
+                        target="_blank">Helyi minősítési szabályzat - 2024</a></li>
+  
+                  </ul>
+                </li>
+                <li class="dropdown"><a href="#"><span>Tájékoztatók</span> <i
+                      class="bi bi-chevron-down dropdown-indicator"></i></a>
+                  <ul>
+                    <li><a href="https://drive.google.com/file/d/1nO9ShTimdxU35_TOk8OMGrDOt9G05amq/view" target="_blank">A
+                        felvételi lehetőségekről szóló tájékoztató</a></li>
+                    <li><a href="https://drive.google.com/file/d/1nOQxe3jq8ZVpSw0mGucNydhXR0irUZA5/view"
+                        target="_blank">Tanulói adatkezelési tájékoztató</a></li>
+                    <li><a href="https://drive.google.com/file/d/10vwsg5UhZ3Sp5wntBAPG34qcHYI5bPeg/view"
+                        target="_blank">Adatkezelési és adattovábbítási szabályzat</a></li>
+                    <li><a href="https://drive.google.com/file/d/1oOao1HRtgZN4SBrIthGPZUwbJPwayLP1/view"
+                        target="_blank">Adatkezelési tájékoztató álláspályázathoz 2023</a></li>
+                    <li><a href="https://drive.google.com/file/d/1IrQsV6TzWXnivAToMnVVbz2KvltznAMu/view"
+                        target="_blank">Fekete - Kamerarendszer adatkezelési szabályzata</a></li>
+                    <li><a href="https://drive.google.com/file/d/1oOao1HRtgZN4SBrIthGPZUwbJPwayLP1/view"
+                        target="_blank">Adatkezelési tájékoztató hit-és erkölcstan</a></li>
+                    <li><a href="https://drive.google.com/file/d/1IlWX8vuDuZzi-J4SQA4cmqoTTt11JKZb/view"
+                        target="_blank">Intézményi adatkezelési szabályzat2023</a></li>
+                    <li><a href="https://drive.google.com/file/d/15C7j3RTnHEVoug56uh7s4ha6wkjlgDSj/view"
+                        target="_blank">Adatkezelési tájékoztató szerzodéses 2023.09.01.</a></li>
+                    <li><a href="https://drive.google.com/file/d/1Qhumif3VbkiovaBgEhPBhaeSpbQni013/view"
+                        target="_blank">Tájékoztatás allergia / anafilaxia</a></li>
+                    <li><a href="https://drive.google.com/file/d/1wkABO0sYWH7oV94LB2PtBpUd-9aTSvAO/view"
+                        target="_blank">Adatkezelési tájékoztató panaszok</a></li>
+                    <li><a href="https://drive.google.com/file/d/1qrGDjBwkWxp5qJyf1LzxrYtFPr0k3IHX/view?usp=sharing"
+                        target="_blank">Eljárásrend gyermekbalesetekkel kapcsolatban</a></li>
+                  </ul>
+                </li>
+  
+                
+              </ul>
+              
+            </li>
+            <li><a href="https://idp.e-kreta.hu/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dkreta-web%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520kreta-core-webapi.public%26state%3DOpenIdConnect.AuthenticationProperties%253DdWNrw6GEsAUj8Nde0KZECI4EhVd6f-stQZh6eHvygZYJswG8s9QUoGQ3bUY3vST-rWn86p2nHjNCefqmpCktJFA-bQ5hx0NrM2fb7EP9Uoa4YSOXs8zQus3gNFIlpM-NET77xRpR926G2M6vm2XApw%26response_mode%3Dform_post%26nonce%3D637661774954760030.NmYyMmNmZWQtYmJiMy00MjYzLWFhMTctMWM0MzRhMGM1ZTJjMjBkNDM3NDUtNTA5Zi00MjdiLTkzNDgtMTZlODk0OTdkNjYy%26institute_code%3Dklik029662001%26institute_data%3DeyJuZXh0X3VwZGF0ZV9kYXRlX3RpbWUiOiIyMDIxLjEwLjA1LiAyMjowMCIsImlzX3N6aXJfaW5zdGl0dXRlIjpmYWxzZSwiaXNfbGljZW5jZV92YWxpZCI6dHJ1ZSwiaXNfYXJjaGl2ZSI6ZmFsc2UsImlzX2Nzb2trZW50ZXR0X2dvbmR2aXNlbG8iOnRydWUsImlzX2ludGV6bWVueV9yb3ZpZG5ldiI6dHJ1ZSwiaXNfc3VjY2Vzc19hdXRob3JpemVkX2RhdGUiOmZhbHNlfQ%253D%253D%26redirect_uri%3Dhttps%253A%252F%252Fklik029662001.e-kreta.hu%26x-client-SKU%3DID_NET461%26x-client-ver%3D5.3.0.0"target="blank">Kréta</a></li>
+            <li><a href="/news">Hírek</a></li>
+            <li><a href="/digital">Digitális témahét</a></li>
+            <li><a href="/">Fiók</a></li>
+          </ul>
+        </nav><!-- .navbar -->
+  
+        <i class="mobile-nav-toggle mobile-nav-show bi bi-list"></i>
+        <i class="mobile-nav-toggle mobile-nav-hide d-none bi bi-x"></i>
+  
+      </div>
+      </header><!-- End Header -->
+    {% include 'includes/messages.html' %}
+
+    {% block layout %}
+    {% endblock %}
+
+    {% block javascript %}{% endblock %}
+    <footer id="footer" class="footer">
+        <div class="container">
+          <div class="row gy-4">
+            <div class="col-lg-5 col-md-12 footer-info">
+              <a href="/" class="logo d-flex align-items-center">
+                <span>Szegedi Bagoly</span>
+              </a>
+              <div class="social-links d-flex mt-4">
+                <a href="https://www.facebook.com/FIAISZ" class="facebook" target="_blank"><i class="bi bi-facebook"></i></a>
+                <a href="https://www.youtube.com/@szegedifekete" class="instagram" target="_blank"><i class="bi bi-youtube"></i>
+                </a>
+              </div>
+            </div>
+    
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Kapcsolódó tzartalmak</h4>
+              <ul>
+                <li><a href="/enroll">Beiratkozás</a></li>
+                <li><a href="https://drive.google.com/drive/folders/1yos3b6glgzoqKGUyXquttPFha32CaM6N?usp=sharing" target="_blank">Helyi tanterv</a></li>
+                <li><a href="#"data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">Tanáraink</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-2 col-6 footer-links">
+              <h4>Tartalomtár</h4>
+              <ul>
+                <li><a href="/news">Hírek</a></li>
+                <li><a href="/about">Rólunk</a></li>
+                <li><a href="/digital">Digitális témahét</a></li>
+              </ul>
+            </div>
+    
+            <div class="col-lg-3 col-md-12 footer-contact text-center text-md-start">
+              <h4>Kapcsolat</h4>
+              <p>
+                6729 Szeged<br>
+                Postás utca 1-3.<br>
+                 <br><br>
+                <strong>Telefon:</strong> +36 62/548-960<br>
+                <strong>Email:</strong> szegedi.fekete.iskola@gmail.com<br>
+              </p>
+    
+            </div>
+    
+          </div>
+        </div>
+    </footer><!-- End Footer -->
+
+</body>
+</html>

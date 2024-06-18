@@ -1,0 +1,30 @@
+{% if message.author == user  %}
+<li class="in">
+    <a href="{% url 'profile' message.author.username %}">
+    <div class="chat-img">
+        <img alt="Avtar" src="{{ message.author.profile.avatar }}">
+    </div>	
+</a>
+    <div class="chat-body">
+        <div class="chat-message">
+            <h5>{{ message.author.profile.name }}</h5>
+            
+            <p>{{ message.body }}</p>
+        </div>
+    </div>
+</li>
+{% else %}
+<li class="out">
+    <a href="{% url 'profile' message.author.username %}">
+    <div class="chat-img">
+        <img alt="Avtar" src="{{ message.author.profile.avatar }}">
+    </div>
+</a>	
+    <div class="chat-body">
+        <div class="chat-message">
+            <h5>{{ message.author.profile.name }}</h5>
+            <p>{{ message.body }}</p>
+        </div>
+    </div>
+</li>
+{% endif %}

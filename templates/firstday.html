@@ -1,0 +1,47 @@
+{% extends 'layouts/blank.html' %}
+{% block title %}Szegedi Bagoly - Első nap{% endblock %}
+
+
+{% block content %}
+<div class="container">
+<div class="text-center m-4">
+  <h1>1.nap
+  </h1>
+  <hr>  
+</div>
+ <div class="row m-4" data-aos="fade-up">
+    {% for obj in secondimage %}
+    <div class="col-lg-4 mb-4 mb-lg-0">
+      <img
+        src="{{ obj.image.url }}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Mountains in the Clouds"
+      />
+    </div>
+    {% endfor %}
+
+    {% for obj in secondimage %}
+    <div class="col-lg-4 mb-4 mb-lg-0">
+  
+      <img
+        src="{{ obj.image.url }}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Yosemite National Park"
+      />
+    </div>
+    {% endfor %}
+
+    {% for obj in firstimage %}
+    <div class="col-lg-4 col-md-12 mb-4 mb-lg-0">
+      <img
+        src="{{ obj.image.url }}"
+        class="w-100 shadow-1-strong rounded mb-4"
+        alt="Boat on Calm Water"
+      />
+    </div>
+    {% endfor %}
+  </div>
+
+</div>
+{% endblock %}
+

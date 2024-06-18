@@ -1,0 +1,580 @@
+{% extends 'layouts/blank.html' %}
+
+{% block title %}Szegedi Bagoly - Kezdőlap{% endblock %}
+
+
+{% block content %} 
+
+<section id="home" class="hero">
+    <div class="container position-relative">
+      <div class="row gy-5" data-aos="fade-in">
+        <div class="col-lg-6 order-2 order-lg-1 d-flex flex-column justify-content-center text-center text-lg-start" >
+          <h2 style="color: #999;">Üdvözöljük a Fekete István Általános Iskola weboldalán</h2>
+          <p style="color: #999;">Iskolánkban a gyerekek tanulása és fejlődése áll az első helyen. Célunk, hogy inspiráló környezetet
+            teremtsünk, ahol minden diákunk kiemelkedően tud fejlődni, és boldogan járjon iskolába minden nap.</p>
+          <div class="d-flex justify-content-center justify-content-lg-between">
+            <a href="/news" class="btn-get-started">Hírek</a>
+            <a href="/about" class="btn-get-started">Rólunk</a>
+          </div>
+        </div>
+        <div class="col-lg-6 order-1 order-lg-2">
+          <a href="/without_border/">
+          <img src="../static/img/news/Határtalanul logó.png" class="img-fluid" alt=""
+            data-aos="zoom-out" data-aos-delay="100">
+          </a>
+        </div>
+      </div>
+    </div>
+
+    <div id="usefull" class="icon-boxes position-relative ">
+      <div class="container position-relative">
+        <div class="row gy-4 mt-5">
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-person"></i></div>
+              <h4 class="title"><a href="" class="stretched-link" data-bs-toggle="modal"data-bs-target="#exampleModalMunkatarsak">Munkatársak</a></h4>
+            </div>
+          </div><!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-person-raised-hand"></i>
+              </div>
+              <h4 class="title"><a href="/about" class="stretched-link">Rólunk</a></h4>
+            </div>
+          </div><!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-book"></i></div>
+              <h4 class="title"><a href="/education" class="stretched-link">Oktatás</a></h4>
+            </div>
+          </div><!--End Icon Box -->
+
+          <div class="col-xl-3 col-md-6" data-aos="fade-up" data-aos-delay="500">
+            <div class="icon-box">
+              <div class="icon"><i class="bi bi-people"></i></div>
+              <h4 class="title"><a href="" class="stretched-link" data-bs-toggle="modal"
+                  data-bs-target="#exampleModal">Tanáraink</a></h4>
+            </div>
+          </div><!--End Icon Box -->
+
+        </div>
+      </div>
+    </div>
+
+    </div>
+  </section>
+  <div class="modal fade bd-example-modal-xl" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tanáraink</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Név</th>
+                <th scope="col">Beosztás</th>
+                <th scope="col">Végzettség</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Berényi Beatrix</td>
+                <td>Természettudomány , komplex természettudomány , fizika , kémia , biológia , földrajz</td>
+                <td>Természettudomány-környezettan tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Bezdán-Gauder Graciella</td>
+                <td>GYED</td>
+                <td>okleveles földrajz és fizikatanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Börcsök Andrea Zsuzsanna</td>
+                <td>tanító 4.osztály , humán tárgyak , osztályfőnök 4.osztály </td>
+                <td>tanító , ember - és társadalom műveltségterület (főiskola), földrajz szakos tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Camdzija Edo</td>
+                <td>testnevelés , humán tárgyak , osztályfőnök 8.osztály </td>
+                <td>okleveles testnevelő tanár és földrajz tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Csábi Andrea</td>
+                <td>pedagógiai asszisztens</td>
+                <td>Gyógypedagógiai asszisztens</td>
+              </tr>
+              <tr>
+                <td>Falábú László</td>
+                <td>könyvtáros tanár , tanulószoba </td>
+                <td>magyar-történelem szakos tanár (főiskola) , történelem szakos tanár (egyetem) , könyvtáros
+                  asszisztens</td>
+              </tr>
+              <tr>
+                <td>Győri-Dani Dóra</td>
+                <td>iskolapszichológus </td>
+                <td>okleveles pszichológus (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Hajdúné Szerezlai Éva</td>
+                <td>tanító 1.osztály , humán tantárgyak , osztályfőnök 1.osztály</td>
+                <td>tanító , ének-zene műveltségterület (főiskola)</td>
+              </tr>
+              <tr>
+                <td>Jerneiné Mezey Klára</td>
+                <td>fejlesztő - rehabilitációs órák 1-8. osztály</td>
+                <td>magyar szakos tanár (főiskola) , fejlesztőpedagógus (egyetem) , okleveles nyelv - és beszédfejlesztő
+                  tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Korsós Nóra</td>
+                <td>magyar nyelv és irodalom , dráma és színház</td>
+                <td>okleveles középiskolai magyartanár és okleveles dráma - és színházismeret-tanár</td>
+              </tr>
+              <tr>
+                <td>Kovács Kinga</td>
+                <td>magyar nyelv és irodalom , történelem , 7.osztály osztályfőnök</td>
+                <td>magyar-történelem szakos tanár (főiskola) , történelem szakos tanár (egyetem), szakvizsgázott nyelv
+                  és beszédfejlesztő pedagógus</td>
+              </tr>
+              <tr>
+                <td>Horváthné Szabó Éva</td>
+                <td>rajz , hon és népismeret . állampolgári ismeretek , osztályfőnök 5.osztály</td>
+                <td>rajz szakos tanár (főiskola) , okleveles vizuális- és környezetkultúra tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Kulcsár Edmond</td>
+                <td>angol nyelv</td>
+                <td>Magyar-angol alapszak , nyelvtan tanár , angol tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Pap Dóra</td>
+                <td>tanító , 4.osztály , reál tantárgyak</td>
+                <td>tanító rajz műveltségterület (főiskola) , szakvizsgázott egészségfejlesztő-mentálhigiénikus
+                  (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Monostoriné Hrabovszky Éva Klára</td>
+                <td>digitális kúltúra</td>
+                <td></td>
+              </tr>
+              <tr>
+                <td>Muci Izabella</td>
+                <td>angol nyelv , 6.osztály osztályfőnök</td>
+                <td>okleveles angol tanár , okleveles nyelvés beszédfejlesztő tanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Nagy Péterné Korándi Márta</td>
+                <td>tanító 3.osztály , humán tantárgyak</td>
+                <td>tanító - angol nyelv műveltségterület (főiskola)</td>
+              </tr>
+              <tr>
+                <td>Ormándiné Nógrádi Erika</td>
+                <td>matematika</td>
+                <td>Matematika szakos tanár , fizika szakos tanár , közoktatási szakértő , a pedagógiai értékelés és
+                  mérés okleveles tanára (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Papp Eszter</td>
+                <td>mozgásfejlesztés , igazgató helyettes</td>
+                <td>konduktor - tanító (főiskola)</td>
+              </tr>
+              <tr>
+                <td>Sáriné Kis Máriar</td>
+                <td>tanító 1.osztály , reál tantárgyak , alsó tagozatos munkaközösség-vezető</td>
+                <td>tanító testnevelés műveltségterület , szakvizsgázott pedagógus gyakorlatvezető mentortanító
+                  (főiskola)</td>
+              </tr>
+              <tr>
+                <td>Sáriné Vetró Zsuzsanna</td>
+                <td>igazgató, magyar nyelv és irodalom</td>
+                <td>Magyar nyelv és irodalom szakos tanár (egyetem) , művelődésszervező-média szak (főiskola) ,
+                  szakvizsgázott közoktatás-vezető pedagógus</td>
+              </tr>
+              <tr>
+                <td>Sétáló Ráchel</td>
+                <td>tanító 2.osztály reál tantárgyak , néptánc</td>
+                <td>tanító - angol nyelv (főiskola) , táncpedagógus</td>
+              </tr>
+              <tr>
+                <td>Szászné Medvegy Veronika</td>
+                <td>tanító 3. osztály</td>
+                <td>tanító - angol nyelv (főiskola) , táncpedagógus</td>
+              </tr>
+              <tr>
+                <td>Szécsi Attila</td>
+                <td>ének-zene , történelem , etika , felső tagozatos munkaközösség-vezető</td>
+                <td>okleveles ének-zene tanár , okleveles történelemtanár (egyetem)</td>
+              </tr>
+              <tr>
+                <td>Tóth Éva</td>
+                <td>tanító 2.osztály , humán tantárgyak , osztályfőnök 2.osztály</td>
+                <td>tanító ének-zene műveltségterület főiskola , okleveles hittantanár főiskola</td>
+              </tr>
+              <tr>
+                <td>Törökné Varga Tímea</td>
+                <td>tanító 3.osztály , reál tantárgyak, osztályfőnök 3.osztály</td>
+                <td>tanító ének-zene szakkollégium (főiskola)
+                </td>
+              </tr>
+              <tr>
+                <td>Balla Dorka</td>
+                <td>gyógypedagógus (egyetem)</td>
+                <td>logopédus</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- Modal "Munkatársak"-->
+  <div class="modal fade bd-example-modal-xl" id="exampleModalMunkatarsak" tabindex="-1"
+    aria-labelledby="exampleModalMunkatarsak" aria-hidden="true">
+    <div class="modal-dialog modal-xl">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Tanáraink</h5>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <table class="table table-hover">
+            <thead>
+              <tr>
+                <th scope="col">Név</th>
+                <th scope="col">Beosztás</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td>Bodó Dalma</td>
+                <td>Portás</td>
+              </tr>
+              <tr>
+                <td>Grandpiere Ernőné</td>
+                <td>Takarító</td>
+              </tr>
+              <tr>
+                <td>Barcsik Mónika</td>
+                <td>Gazdasági titkár</td>
+              </tr>
+              <tr>
+                <td>Paluchné Thuróczy Edit</td>
+                <td>Iskola gondnok</td>
+              </tr>
+              <tr>
+                <td>Szántai János</td>
+                <td>Udvaros</td>
+              </tr>
+              <tr>
+                <td>Tokaji Ticián</td>
+                <td>Rendszergazda</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+        <div class="modal-footer">
+          <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
+  <!-- End About Us Section -->
+  <section id="services" class="services sections-bg">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Hasznos lehet</h2>
+      </div>
+
+      <div class="row gy-4" data-aos="fade-up" data-aos-delay="100">
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item  position-relative">
+            <div class="icon">
+              <i class="bi bi-window-dock"></i>
+            </div>
+            <h3>Kréta</h3>
+            <p>Kérta elektronikus napló.</p>
+            <a href="https://idp.e-kreta.hu/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dkreta-web%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520kreta-core-webapi.public%26state%3DOpenIdConnect.AuthenticationProperties%253DdWNrw6GEsAUj8Nde0KZECI4EhVd6f-stQZh6eHvygZYJswG8s9QUoGQ3bUY3vST-rWn86p2nHjNCefqmpCktJFA-bQ5hx0NrM2fb7EP9Uoa4YSOXs8zQus3gNFIlpM-NET77xRpR926G2M6vm2XApw%26response_mode%3Dform_post%26nonce%3D637661774954760030.NmYyMmNmZWQtYmJiMy00MjYzLWFhMTctMWM0MzRhMGM1ZTJjMjBkNDM3NDUtNTA5Zi00MjdiLTkzNDgtMTZlODk0OTdkNjYy%26institute_code%3Dklik029662001%26institute_data%3DeyJuZXh0X3VwZGF0ZV9kYXRlX3RpbWUiOiIyMDIxLjEwLjA1LiAyMjowMCIsImlzX3N6aXJfaW5zdGl0dXRlIjpmYWxzZSwiaXNfbGljZW5jZV92YWxpZCI6dHJ1ZSwiaXNfYXJjaGl2ZSI6ZmFsc2UsImlzX2Nzb2trZW50ZXR0X2dvbmR2aXNlbG8iOnRydWUsImlzX2ludGV6bWVueV9yb3ZpZG5ldiI6dHJ1ZSwiaXNfc3VjY2Vzc19hdXRob3JpemVkX2RhdGUiOmZhbHNlfQ%253D%253D%26redirect_uri%3Dhttps%253A%252F%252Fklik029662001.e-kreta.hu%26x-client-SKU%3DID_NET461%26x-client-ver%3D5.3.0.0" target="_blank" class="readmore stretched-link">Ugrás az oldalra <i class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item position-relative">
+            <div class="icon">
+              <i class="bi bi-person-rolodex"></i>
+            </div>
+            <h3>Közétkeztetés</h3>
+            <p>Közetkeztetéssel kapcsolatos információkért itt tájékozódhat. </p>
+            <a href="https://ngsz.hu/" class="readmore stretched-link" target="_blank">Ugrás az oldalra <i
+                class="bi bi-arrow-right"></i></a>
+          </div>
+        </div><!-- End Service Item -->
+
+        <div class="col-lg-4 col-md-6">
+          <div class="service-item position-relative">
+            <h3>Tanórák csengetési rendje</h3>
+            <table class="table">
+              <thead>
+                <tr>
+                  <th scope="col"></th>
+                  <th scope="col">Becsengetés</th>
+                  <th scope="col">Kicsengetés</th>
+                </tr>
+              </thead>
+              <tbody>
+                <tr>
+                  <th scope="row">1.</th>
+                  <td>8:00</td>
+                  <td>8:45</td>
+                </tr>
+                <tr>
+                  <th scope="row">2.</th>
+                  <td>9:00</td>
+                  <td>9:45</td>
+                </tr>
+                <tr>
+                  <th scope="row">3.</th>
+                  <td>10:00</td>
+                  <td>10:45</td>
+                </tr>
+                <tr>
+                  <th scope="row">4.</th>
+                  <td>11:00</td>
+                  <td>11:45</td>
+                </tr>
+                <tr>
+                  <th scope="row">5.</th>
+                  <td>12:00</td>
+                  <td>12:45</td>
+                </tr>
+              </tbody>
+            </table>
+
+          </div>
+        </div><!-- End Service Item -->
+
+
+      </div>
+
+    </div>
+  </section>
+  <section id="lead" class="team">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Igazgatóink</h2>
+      </div>
+
+      <div class="row gy-4">
+
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="100">
+
+        </div><!-- End Team Member -->
+
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="200">
+          <div class="member">
+            <img src="../../static/img/team/blankprofile.png" class="img-fluid" alt="">
+            <h4>Sáriné Vetró Zsuzsanna</h4>
+            <span>Igazgató</span>
+
+          </div>
+        </div><!-- End Team Member -->
+
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="300">
+          <div class="member">
+            <img src="../../static/img/team/blankprofile.png" class="img-fluid" alt="">
+            <h4>Papp Eszter</h4>
+            <span>Igazgató helyettes</span>
+
+          </div>
+        </div><!-- End Team Member -->
+
+        <div class="col-xl-3 col-md-6 d-flex" data-aos="fade-up" data-aos-delay="400">
+
+        </div><!-- End Team Member -->
+
+      </div>
+
+    </div>
+  </section><!-- End Our Team Section -->
+
+  <!-- ======= Frequently Asked Questions Section ======= -->
+  <section id="faq" class="faq">
+    <div class="container" data-aos="fade-up">
+
+      <div class="row gy-4">
+
+        <div class="col-lg-4">
+          <div class="content px-xl-5">
+            <h3>Gyakran ismételt <strong>Kérdések</strong></h3>
+            <p>
+              Ha bármilyen kérdése van, ne habozzon felvenni velünk a kapcsolatot.
+            </p>
+          </div>
+        </div>
+
+        <div class="col-lg-8">
+
+          <div class="accordion accordion-flush" id="faqlist" data-aos="fade-up" data-aos-delay="100">
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq-content-1">
+                  <span class="num">1.</span>
+                  Hogyan kell beiratkozni? Mik az elvárások az új diákok számára?
+                </button>
+              </h3>
+              <div id="faq-content-1" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  <p>Itt kaphat bővebb információt a beiratkozással kapcsolatban: <a
+                      href="enroll.html"
+                      target="_blank">Beiratkozás</a></p>
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq-content-3">
+                  <span class="num">3.</span>
+                  Hol található az órarend? Hogyan lehet megtekinteni a tanulmányi eredményeket?
+                </button>
+              </h3>
+              <div id="faq-content-3" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  <p>Mindenki egyéni órarendje megtekinthető a <a
+                      href="https://idp.e-kreta.hu/Account/Login?ReturnUrl=%2Fconnect%2Fauthorize%2Fcallback%3Fclient_id%3Dkreta-web%26response_type%3Dcode%26scope%3Dopenid%2520offline_access%2520kreta-core-webapi.public%26state%3DOpenIdConnect.AuthenticationProperties%253DdWNrw6GEsAUj8Nde0KZECI4EhVd6f-stQZh6eHvygZYJswG8s9QUoGQ3bUY3vST-rWn86p2nHjNCefqmpCktJFA-bQ5hx0NrM2fb7EP9Uoa4YSOXs8zQus3gNFIlpM-NET77xRpR926G2M6vm2XApw%26response_mode%3Dform_post%26nonce%3D637661774954760030.NmYyMmNmZWQtYmJiMy00MjYzLWFhMTctMWM0MzRhMGM1ZTJjMjBkNDM3NDUtNTA5Zi00MjdiLTkzNDgtMTZlODk0OTdkNjYy%26institute_code%3Dklik029662001%26institute_data%3DeyJuZXh0X3VwZGF0ZV9kYXRlX3RpbWUiOiIyMDIxLjEwLjA1LiAyMjowMCIsImlzX3N6aXJfaW5zdGl0dXRlIjpmYWxzZSwiaXNfbGljZW5jZV92YWxpZCI6dHJ1ZSwiaXNfYXJjaGl2ZSI6ZmFsc2UsImlzX2Nzb2trZW50ZXR0X2dvbmR2aXNlbG8iOnRydWUsImlzX2ludGV6bWVueV9yb3ZpZG5ldiI6dHJ1ZSwiaXNfc3VjY2Vzc19hdXRob3JpemVkX2RhdGUiOmZhbHNlfQ%253D%253D%26redirect_uri%3Dhttps%253A%252F%252Fklik029662001.e-kreta.hu%26x-client-SKU%3DID_NET461%26x-client-ver%3D5.3.0.0"
+                      target="_blank">Kréta</a> rendszerben.</p>
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq-content-4">
+                  <span class="num">4.</span>
+                  Mik az előttünk álló iskolai események és programok?
+                </button>
+              </h3>
+              <div id="faq-content-4" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  <p>Itt megtekinthetők iskolánk <a
+                      href="blog.html"
+                      target="_blank">Eseményinek</a> listája</p>
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+
+
+            <div class="accordion-item">
+              <h3 class="accordion-header">
+                <button class="accordion-button collapsed" type="button" data-bs-toggle="collapse"
+                  data-bs-target="#faq-content-6">
+                  <span class="num">6.</span>
+                  Mi a viselkedési kódex? Milyen elvárásoknak kell megfelelni az iskolában?
+                </button>
+              </h3>
+              <div id="faq-content-6" class="accordion-collapse collapse" data-bs-parent="#faqlist">
+                <div class="accordion-body">
+                  <p>Iskolánk házirendje részletesen leírja az elvárt viselkedést . <a
+                      href="https://drive.google.com/file/d/1lycRMgYZbgZsfXZfX14ADLdsrHWsQBgz/view"
+                      target="_blank">Házirend</a></p>
+                </div>
+              </div>
+            </div><!-- # Faq item-->
+          </div>
+
+        </div>
+      </div>
+
+    </div>
+  </section><!-- End Frequently Asked Questions Section -->
+
+  <!-- ======= Recent Blog Posts Section ======= -->
+
+
+  <!-- ======= Contact Section ======= -->
+  <section id="contact" class="contact">
+    <div class="container" data-aos="fade-up">
+
+      <div class="section-header">
+        <h2>Kapcsolat</h2>
+      </div>
+
+      <div class="row gx-lg-0 gy-4">
+
+        <div class="col-lg-6">
+
+          <div class="info-container d-flex flex-column align-items-center justify-content-center">
+            <div class="info-item d-flex">
+              <i class="bi bi-geo-alt flex-shrink-0"></i>
+              <div>
+                <h4>Iskola címe:</h4>
+                <p>6729, Szeged Postás utca 1-3.</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex">
+              <i class="bi bi-envelope flex-shrink-0"></i>
+              <div>
+                <h4>Email:</h4>
+                <p>szegedi.fekete.iskola@gmail.com</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex">
+              <i class="bi bi-phone flex-shrink-0"></i>
+              <div>
+                <h4>Telefonszám:</h4>
+                <p>+36 62/548-960</p>
+              </div>
+            </div><!-- End Info Item -->
+
+            <div class="info-item d-flex">
+              <i class="bi bi-clock flex-shrink-0"></i>
+              <div>
+                <h4>Nyitvatartás:</h4>
+                <p>Hét.-Pén. 6:00-18:00</p>
+              </div>
+            </div><!-- End Info Item -->
+          </div>
+
+        </div>
+
+        <div class="col-lg-6">
+          <form method="post" role="form" class="php-email-form"> 
+            <div class="row">
+              <div class="col-md-6 form-group">
+                <input type="text" name="name" class="form-control" id="name" placeholder="Az ön neve..." required>
+              </div>
+              <div class="col-md-6 form-group mt-3 mt-md-0">
+                <input type="email" class="form-control" name="email" id="email" placeholder="Email címe..." required>
+              </div>
+            </div>
+            <div class="form-group mt-3">
+              <input type="text" class="form-control" name="subject" id="subject" placeholder="Tárgy..." required>
+            </div>
+            <div class="form-group mt-3">
+              <textarea class="form-control" name="message" rows="7" placeholder="Üzenet..." required></textarea>
+            </div>
+
+            <div class="text-center"><button type="submit">Üzenet küldése</button></div>
+          </form>
+      </div><!-- End Contact Form -->
+  </section><!-- End Contact Section -->
+
+{% endblock %}
