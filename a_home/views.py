@@ -5,6 +5,10 @@ def home_view(request):
     themes = Theme.objects.filter(is_active=True)
     return render(request, 'home.html',{'themes':themes})
 
+def chat_view(request):
+    themes = Theme.objects.filter(is_active=True)
+    return render(request, 'chat.html',{'themes':themes})
+
 def enroll(request):
     themes = Theme.objects.filter(is_active=True)
     return render(request, 'enroll.html',{'themes':themes})

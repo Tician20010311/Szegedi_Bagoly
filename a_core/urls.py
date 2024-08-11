@@ -14,6 +14,8 @@ urlpatterns = [
     path('enroll/', enroll, name="enroll"),
     path('accounts/', include('allauth.urls')),
     path('', home_view , name="home"),
+    path('bagolyhuhogas/', include('a_rtchat.urls') , name="bagolyhuhogas"),
+    path('chat/', chat_view , name="chat"),
     path('profile/', include('a_users.urls')),
     path('@<username>/', profile_view, name="profile"),
 
